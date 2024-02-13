@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой сайт</title>
+
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 90vh;
+            margin: 0;
+            background-color: #ebdde4;
+            overflow: hidden;
+        }
+    
+        .container {
+            text-align: center;
+        }
+    
+        .header_text {
+            font-family: "Nunito", sans-serif; /* "Nunito" - ваш выбранный шрифт, sans-serif - альтернативный шрифт для резерва */
+            font-size: 40px;
+            font-weight: bold;
+            text-transform: uppercase; /* Приводим текст к заглавным буквам */
+            color: #c589a7;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 0px;
+            letter-spacing: 2px; /* Увеличиваем промежуток между буквами */
+            text-shadow: 1px 1px 2px rgba(50, 48, 48, 0.5); /* Тень над текстом */
+        }
+    
+        .gif_container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 90px;
+        }
+    
+        .buttons {
+            margin-top: 20px;
+        }
+    
+        .btn {
+            padding: 15px 32px;
+            font-size: 16px;
+            background-color: #f1a4c9;
+            color: #fff;
+            border: none;
+            border-radius: 44px;
+            cursor: pointer;
+            margin: 4px 40px;
+            display: inline-block;
+            font-size: 20px;
+            transition: background-color 0.1s ease, transform 0.2s ease;
+        }   
+    
+        .btn-no {
+            position: relative;
+            transition: all 0ms linear 0s;
+        }
+
+        .btn-no:hover {
+            top: /* Добавьте координаты сверху, например: */ getRandomInt(0, 150) + "px";
+            left: /* Добавьте координаты слева, например: */ getRandomInt(0, 150) + "px";
+            transition: all 0ms linear 0s;
+        }
+
+        .btn:hover {
+            background-color: #d46087;
+            transform: scale(1.1);
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <h1 class="header_text">Ты меня Любишь?</h1>
+        </div>
+        <div class="gif_container">
+            <img src="kats_ass.gif">
+        </div>
+        <div class="buttons">
+            <button class="btn" id="yesButton" onclick="nextPage()">Да</button>
+            <button class="btn btn-no" id="my-button">нет</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        function nextPage() {
+            window.location.href = "yes.html";
+        }
+
+        $(document).on('mousemove', function (e) {
+            $('#my-button').css({
+                marginLeft: -e.pageX / 100 + 20,
+                marginTop: -e.pageY / 100 + 20
+            });
+        });
+
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        $("#my-button").hover(function () {
+            $(this).css({
+                top: getRandomInt(0, 150) + "px",
+                left: getRandomInt(0, 150) + "px"
+            });
+        }, function () {});
+    </script>
+</body>
+
+</html>
